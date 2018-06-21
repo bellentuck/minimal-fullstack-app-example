@@ -8,9 +8,13 @@ const Crumpet = require('./Crumpet');
 const Store = require('./Store');
 
 // -------- model associations go here --------- //
+// stores:crumpets :: many:many
 
+Store.belongsToMany(Crumpet, { through: 'crumpet_stores'});
+Crumpet.belongsToMany(Store, { through: 'crumpet_stores'});
 
-
+Crumpet.setStore()
+Store.setCrumpet()
 
 module.exports = {
 	db,

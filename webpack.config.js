@@ -1,9 +1,14 @@
-const webpack = require('webpack');
+const { join } = require('path');
+const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
-  entry: './browser/App.jsx',
+  mode: isDev ? 'development' : 'production',
+  entry: [
+    '@babel/polyfill', // enables async-await
+    './client/App.js'
+  ],
   output: {
-    path: __dirname + '/public',
+    path: join(__dirname, 'public'),
     filename: 'bundle.js'
   },
   context: __dirname,
@@ -15,7 +20,7 @@ module.exports = {
     rules: [
       {
         test: /jsx?$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules)/,
         loader: 'babel-loader',
         options: {
           presets: ['react', 'env', 'stage-2']

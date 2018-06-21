@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index",
-    "start:dev": "webpack -w & nodemon index.js -e js,html --watch",
+    "start:dev": "NODE_ENV='development' webpack -w & nodemon index.js -e js,html --watch",
     "seed": "node seed"
   },
   "keywords": [],
