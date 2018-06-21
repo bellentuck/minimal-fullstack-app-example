@@ -6,9 +6,7 @@
   "scripts": {
     "start": "node index",
     "start:dev": "webpack -w & nodemon index.js -e js,html --watch",
-    "seed": "node seed",
-    "db-init": "pg-init crumpet",
-    "postinstall": "npm run db-init"
+    "seed": "node seed"
   },
   "keywords": [],
   "author": "Ben Ellentuck <ellentuckben@gmail.com> (https://github.com/bellentuck)",
